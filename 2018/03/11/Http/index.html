@@ -89,7 +89,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoummg.github.io/upload/image/http_message.png">
 <meta property="og:image" content="http://yoummg.github.io/upload/image/http_transfer.png">
-<meta property="og:updated_time" content="2018-03-11T02:24:33.000Z">
+<meta property="og:updated_time" content="2018-03-11T02:32:38.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="认识HTTP报文">
 <meta name="twitter:description" content="HTTP：超文本传输协议（Hypertext Transfer Protocol，简称HTTP）是应用层协议。HTTP 是一种请求/响应式的协议，即一个客户端与服务器建立连接后，向服务器发送一个请求；服务器接到请求后，给予相应的响应信息。 报文流：流入与流出来描述事务处理。报文的组成（三个部分）：对报文进行描述的起始行，包含属性的首部块，以及可选的、包含数据的主体部分。">
@@ -368,9 +368,9 @@
 <h2 id="状态行"><a href="#状态行" class="headerlink" title="状态行"></a>状态行</h2><p>HTTP-Version Status-Code Reason-Phrase CRLF</p>
 <p>状态码由三位数字组成，第一位数字表示响应的类型。<br>1xx：表示服务器已接收了客户端请求，客户端可继续发送请求；<br>2xx：表示服务器已成功接收到请求并进行处理；<br>3xx：表示服务器要求客户端重定向；<br>4xx：表示客户端的请求有非法内容；<br>5xx：表示服务器未能正常处理客户端的请求而出现意外错误；</p>
 <p>状态码为客户端提供了一种理解事务处理结果的便捷方式。</p>
-<h2 id="响应报文"><a href="#响应报文" class="headerlink" title="响应报文"></a>响应报文</h2><p>Location响应报头域常用在更换域名的时候。</p>
-<p>Last-Modified 实体报头域用于指示资源的最后修改日期和时间。</p>
-<p>Expires实体报头域给出响应过期的日期和时间。</p>
+<h2 id="响应报文"><a href="#响应报文" class="headerlink" title="响应报文"></a>响应报文</h2><p><strong>Location</strong> 响应报头域常用在更换域名的时候。例如：www.xiaomi.com -&gt; www.mi.com</p>
+<p><strong>Last-Modified</strong> 实体报头域用于指示资源的最后修改日期和时间。</p>
+<p><strong>Expires</strong> 实体报头域给出响应过期的日期和时间。</p>
 <p>若connection 模式为close，则服务器主动关闭TCP连接，客户端被动关闭连接，释放TCP连接;若connection 模式为keepalive，则该连接会保持一段时间，在该时间内可以继续接收请求。</p>
 <h1 id="传输"><a href="#传输" class="headerlink" title="传输"></a>传输</h1><p>浏览器地址键入URL，按下回车所经历一下流程：</p>
 <ol>
@@ -497,7 +497,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
