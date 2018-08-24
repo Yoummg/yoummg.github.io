@@ -106,7 +106,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="tomcat," />
 
 
 
@@ -117,16 +117,18 @@
 
 
 
-<meta name="description" content="daily, skills etc">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Do More">
-<meta property="og:url" content="http://yoummg.github.io/archives/2018/index.html">
+<meta name="description" content="参考文章 catalina.日期.logCatalina引擎的日志文件。这个主要是记录tomcat启动时候的信息，类似于我们在eclipse中启动服务的时候在控制台看到的信息。在里面可以看到启动的JVM参数以及操作系统等日志信息。如果没有使用log4j等日志机制，系统的的错误信息与打印语句也在这个日志文件中记录。">
+<meta name="keywords" content="tomcat">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tomcat日志说明">
+<meta property="og:url" content="http://yoummg.github.io/2018/08/24/Tomcat日志说明/index.html">
 <meta property="og:site_name" content="Do More">
-<meta property="og:description" content="daily, skills etc">
+<meta property="og:description" content="参考文章 catalina.日期.logCatalina引擎的日志文件。这个主要是记录tomcat启动时候的信息，类似于我们在eclipse中启动服务的时候在控制台看到的信息。在里面可以看到启动的JVM参数以及操作系统等日志信息。如果没有使用log4j等日志机制，系统的的错误信息与打印语句也在这个日志文件中记录。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-08-24T13:57:07.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Do More">
-<meta name="twitter:description" content="daily, skills etc">
+<meta name="twitter:title" content="Tomcat日志说明">
+<meta name="twitter:description" content="参考文章 catalina.日期.logCatalina引擎的日志文件。这个主要是记录tomcat启动时候的信息，类似于我们在eclipse中启动服务的时候在控制台看到的信息。在里面可以看到启动的JVM参数以及操作系统等日志信息。如果没有使用log4j等日志机制，系统的的错误信息与打印语句也在这个日志文件中记录。">
 
 
 
@@ -156,13 +158,13 @@
 
 
 
-  <link rel="canonical" href="http://yoummg.github.io/archives/2018/"/>
+  <link rel="canonical" href="http://yoummg.github.io/2018/08/24/Tomcat日志说明/"/>
 
 
 
 
 
-  <title>归档 | Do More</title>
+  <title>Tomcat日志说明 | Do More</title>
   
 
 
@@ -190,7 +192,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -294,111 +296,198 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
-
-      <span class="archive-page-counter">
-        
-        
-        
-          
-        
-        嗯..! 目前共计 9 篇日志。 继续努力。
-      </span>
-
-      
-
-        
-        
-        
-
-        
-          
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2018">2018</h1>
-          </div>
-        
-        
-
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoummg.github.io/2018/08/24/Tomcat日志说明/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yoummg">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Do More">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/08/24/Tomcat日志说明/" itemprop="url">
-              
-                <span itemprop="name">Tomcat日志说明</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">Tomcat日志说明</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-08-24T21:52:49+08:00"
-              content="2018-08-24" >
-          08-24
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-24T21:52:49+08:00">
+                2018-08-24
+              </time>
+            
 
-    </header>
-  </article>
+            
+              <span class="post-meta-divider">|</span>
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-08-24T21:57:07+08:00">
+                2018-08-24
+              </time>
+            
+          </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Technique/" itemprop="url" rel="index">
+                    <span itemprop="name">Technique</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/08/24/Tomcat日志说明/" class="leancloud_visitors" data-flag-title="Tomcat日志说明">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/03/11/Http/" itemprop="url">
-              
-                <span itemprop="name">认识HTTP报文</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-03-11T10:00:58+08:00"
-              content="2018-03-11" >
-          03-11
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
+      
+        <p><a href="https://blog.csdn.net/J080624/article/details/77823522" target="_blank" rel="noopener">参考文章</a></p>
+<h3 id="catalina-日期-log"><a href="#catalina-日期-log" class="headerlink" title="catalina.日期.log"></a>catalina.日期.log</h3><p>Catalina引擎的日志文件。<br>这个主要是记录tomcat启动时候的信息，类似于我们在eclipse中启动服务的时候在控制台看到的信息。在里面可以看到启动的JVM参数以及操作系统等日志信息。如果没有使用log4j等日志机制，系统的的错误信息与打印语句也在这个日志文件中记录。</p>
+<a id="more"></a>
+<h3 id="localhost-日期-log"><a href="#localhost-日期-log" class="headerlink" title="localhost.日期.log"></a>localhost.日期.log</h3><p>Tomcat下内部代码抛出的日志,日志信息就在该文件。</p>
+<h3 id="host-manager-日期-log-与-manager-日志-log"><a href="#host-manager-日期-log-与-manager-日志-log" class="headerlink" title="host-manager.日期.log 与 manager.日志.log"></a>host-manager.日期.log 与 manager.日志.log</h3><p>webapps自带manage项目的日志</p>
+<h3 id="localhost-access-log-日期-txt"><a href="#localhost-access-log-日期-txt" class="headerlink" title="localhost_access_log.日期.txt"></a>localhost_access_log.日期.txt</h3><p>存放访问tomcat的请求的所有地址以及请求的路径、时间，请求协议以及返回码等信息(重要)</p>
+<p>总结：请求看access，错误日志联合看catalina和localhost</p>
+
+      
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/tomcat/" rel="tag"># tomcat</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/11/Http/" rel="next" title="认识HTTP报文">
+                <i class="fa fa-chevron-left"></i> 认识HTTP报文
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -406,6 +495,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -426,8 +519,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -489,6 +591,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#catalina-日期-log"><span class="nav-number">1.</span> <span class="nav-text"><a href="#catalina-&#x65E5;&#x671F;-log" class="headerlink" title="catalina.&#x65E5;&#x671F;.log"></a>catalina.&#x65E5;&#x671F;.log</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#localhost-日期-log"><span class="nav-number">2.</span> <span class="nav-text"><a href="#localhost-&#x65E5;&#x671F;-log" class="headerlink" title="localhost.&#x65E5;&#x671F;.log"></a>localhost.&#x65E5;&#x671F;.log</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#host-manager-日期-log-与-manager-日志-log"><span class="nav-number">3.</span> <span class="nav-text"><a href="#host-manager-&#x65E5;&#x671F;-log-&#x4E0E;-manager-&#x65E5;&#x5FD7;-log" class="headerlink" title="host-manager.&#x65E5;&#x671F;.log &#x4E0E; manager.&#x65E5;&#x5FD7;.log"></a>host-manager.&#x65E5;&#x671F;.log &#x4E0E; manager.&#x65E5;&#x5FD7;.log</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#localhost-access-log-日期-txt"><span class="nav-number">4.</span> <span class="nav-text"><a href="#localhost-access-log-&#x65E5;&#x671F;-txt" class="headerlink" title="localhost_access_log.&#x65E5;&#x671F;.txt"></a>localhost_access_log.&#x65E5;&#x671F;.txt</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -629,6 +747,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
 
   
 
