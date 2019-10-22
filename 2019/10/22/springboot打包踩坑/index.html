@@ -106,7 +106,7 @@
 
 
 
-  <meta name="keywords" content="tomcat," />
+  <meta name="keywords" content="spring," />
 
 
 
@@ -117,18 +117,18 @@
 
 
 
-<meta name="description" content="参考文章 catalina.日期.logCatalina引擎的日志文件。这个主要是记录tomcat启动时候的信息，类似于我们在eclipse中启动服务的时候在控制台看到的信息。在里面可以看到启动的JVM参数以及操作系统等日志信息。如果没有使用log4j等日志机制，系统的的错误信息与打印语句也在这个日志文件中记录。">
-<meta name="keywords" content="tomcat">
+<meta name="description" content="最近在把自己写的demo部署到服务器，因为公司的服务部署平台都是使用tomcat，所以做了笔记，记录下自己的踩坑过程。 打包分类：  jar war">
+<meta name="keywords" content="spring">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Tomcat日志说明">
-<meta property="og:url" content="http://yoummg.github.io/2018/08/24/Tomcat日志说明/index.html">
+<meta property="og:title" content="springboot打包踩坑">
+<meta property="og:url" content="http://yoummg.github.io/2019/10/22/springboot打包踩坑/index.html">
 <meta property="og:site_name" content="Do More">
-<meta property="og:description" content="参考文章 catalina.日期.logCatalina引擎的日志文件。这个主要是记录tomcat启动时候的信息，类似于我们在eclipse中启动服务的时候在控制台看到的信息。在里面可以看到启动的JVM参数以及操作系统等日志信息。如果没有使用log4j等日志机制，系统的的错误信息与打印语句也在这个日志文件中记录。">
+<meta property="og:description" content="最近在把自己写的demo部署到服务器，因为公司的服务部署平台都是使用tomcat，所以做了笔记，记录下自己的踩坑过程。 打包分类：  jar war">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-24T13:59:44.000Z">
+<meta property="og:updated_time" content="2019-10-22T08:54:29.564Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Tomcat日志说明">
-<meta name="twitter:description" content="参考文章 catalina.日期.logCatalina引擎的日志文件。这个主要是记录tomcat启动时候的信息，类似于我们在eclipse中启动服务的时候在控制台看到的信息。在里面可以看到启动的JVM参数以及操作系统等日志信息。如果没有使用log4j等日志机制，系统的的错误信息与打印语句也在这个日志文件中记录。">
+<meta name="twitter:title" content="springboot打包踩坑">
+<meta name="twitter:description" content="最近在把自己写的demo部署到服务器，因为公司的服务部署平台都是使用tomcat，所以做了笔记，记录下自己的踩坑过程。 打包分类：  jar war">
 
 
 
@@ -158,13 +158,13 @@
 
 
 
-  <link rel="canonical" href="http://yoummg.github.io/2018/08/24/Tomcat日志说明/"/>
+  <link rel="canonical" href="http://yoummg.github.io/2019/10/22/springboot打包踩坑/"/>
 
 
 
 
 
-  <title>Tomcat日志说明 | Do More</title>
+  <title>springboot打包踩坑 | Do More</title>
   
 
 
@@ -320,7 +320,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoummg.github.io/2018/08/24/Tomcat日志说明/">
+    <link itemprop="mainEntityOfPage" href="http://yoummg.github.io/2019/10/22/springboot打包踩坑/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="yoummg">
@@ -337,7 +337,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Tomcat日志说明</h1>
+          <h1 class="post-title" itemprop="name headline">springboot打包踩坑</h1>
         
 
         <div class="post-meta">
@@ -349,8 +349,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-24T21:52:49+08:00">
-                2018-08-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-22T15:48:55+08:00">
+                2019-10-22
               </time>
             
 
@@ -365,8 +365,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-08-24T21:59:44+08:00">
-                2018-08-24
+              <time title="更新于" itemprop="dateModified" datetime="2019-10-22T16:54:29+08:00">
+                2019-10-22
               </time>
             
           </span>
@@ -401,7 +401,7 @@
 
           
           
-             <span id="/2018/08/24/Tomcat日志说明/" class="leancloud_visitors" data-flag-title="Tomcat日志说明">
+             <span id="/2019/10/22/springboot打包踩坑/" class="leancloud_visitors" data-flag-title="springboot打包踩坑">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -432,13 +432,25 @@
       
 
       
-        <p><a href="https://blog.csdn.net/J080624/article/details/77823522" target="_blank" rel="noopener">参考文章</a></p>
-<h3 id="catalina-日期-log"><a href="#catalina-日期-log" class="headerlink" title="catalina.日期.log"></a>catalina.日期.log</h3><p>Catalina引擎的日志文件。<br>这个主要是记录tomcat启动时候的信息，类似于我们在eclipse中启动服务的时候在控制台看到的信息。在里面可以看到启动的JVM参数以及操作系统等日志信息。如果没有使用log4j等日志机制，系统的的错误信息与打印语句也在这个日志文件中记录。</p>
+        <p>最近在把自己写的demo部署到服务器，因为公司的服务部署平台都是使用tomcat，所以做了笔记，记录下自己的踩坑过程。</p>
+<p>打包分类：</p>
+<ul>
+<li>jar</li>
+<li>war</li>
+</ul>
 <a id="more"></a>
-<h3 id="localhost-日期-log"><a href="#localhost-日期-log" class="headerlink" title="localhost.日期.log"></a>localhost.日期.log</h3><p>Tomcat下内部代码抛出的日志,日志信息就在该文件。</p>
-<h3 id="host-manager-日期-log-与-manager-日期-log"><a href="#host-manager-日期-log-与-manager-日期-log" class="headerlink" title="host-manager.日期.log 与 manager.日期.log"></a>host-manager.日期.log 与 manager.日期.log</h3><p>webapps自带manage项目的日志</p>
-<h3 id="localhost-access-log-日期-txt"><a href="#localhost-access-log-日期-txt" class="headerlink" title="localhost_access_log.日期.txt"></a>localhost_access_log.日期.txt</h3><p>存放访问tomcat的请求的所有地址以及请求的路径、时间，请求协议以及返回码等信息(重要)</p>
-<p>总结：请求看access，错误日志联合看catalina和localhost</p>
+<h4 id="1-打包jar"><a href="#1-打包jar" class="headerlink" title="1.打包jar"></a>1.打包jar</h4><h5 id="1-1-pom文件修改"><a href="#1-1-pom文件修改" class="headerlink" title="1.1 pom文件修改"></a>1.1 pom文件修改</h5><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">packaging</span>&gt;</span>jar<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h5 id="1-2-maven打包"><a href="#1-2-maven打包" class="headerlink" title="1.2 maven打包"></a>1.2 maven打包</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">clean </span><br><span class="line"></span><br><span class="line">package</span><br></pre></td></tr></table></figure>
+<h4 id="2-打包war"><a href="#2-打包war" class="headerlink" title="2.打包war"></a>2.打包war</h4><h5 id="2-1-修改pom文件"><a href="#2-1-修改pom文件" class="headerlink" title="2.1 修改pom文件"></a>2.1 修改pom文件</h5><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">packaging</span>&gt;</span>war<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-tomcat<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--scope provides打包会去除掉--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">scope</span>&gt;</span>provided<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h5 id="2-2-修改Application类"><a href="#2-2-修改Application类" class="headerlink" title="2.2 修改Application类"></a>2.2 修改Application类</h5><p>主要是找到入口类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PaApplication</span> <span class="keyword">extends</span> <span class="title">SpringBootServletInitializer</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		SpringApplication.run(PaApplication.class, args);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span><span class="comment">//为了打包springboot项目</span></span><br><span class="line">	<span class="function"><span class="keyword">protected</span> SpringApplicationBuilder <span class="title">configure</span><span class="params">(SpringApplicationBuilder builder)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> builder.sources(PaApplication.class);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="2-3-maven打包"><a href="#2-3-maven打包" class="headerlink" title="2.3 maven打包"></a>2.3 maven打包</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">clean </span><br><span class="line"></span><br><span class="line">package</span><br></pre></td></tr></table></figure>
+<h4 id="3-踩坑"><a href="#3-踩坑" class="headerlink" title="3.踩坑"></a>3.踩坑</h4><p>主要是打war包</p>
+<h5 id="3-1-context-path不生效"><a href="#3-1-context-path不生效" class="headerlink" title="3.1 context-path不生效"></a>3.1 context-path不生效</h5><p>如果你application.properties包括：</p>
+<p>springboot 2.x <strong>server.servlet.context-path=/api</strong><br>springboot 1.x <strong>server.context-path=/api</strong><br>那pom文件加入<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">finalName</span>&gt;</span>api<span class="tag">&lt;/<span class="name">finalName</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>原因：因为打成war包，会屏蔽context-path。</p>
+<h5 id="3-2-tomcat启动，报错Failed-to-start-component"><a href="#3-2-tomcat启动，报错Failed-to-start-component" class="headerlink" title="3.2 tomcat启动，报错Failed to start component"></a>3.2 tomcat启动，报错Failed to start component</h5><p>原因：由于我引入了其他slf4j低版本包，与springboot的logback冲突，因此启动不了。</p>
+<p>解决：修改pom文件<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">exclusions</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">exclusion</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>ch.qos.logback<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>logback-classic<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">exclusion</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">exclusions</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -456,7 +468,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/tomcat/" rel="tag"># tomcat</a>
+            <a href="/tags/spring/" rel="tag"># spring</a>
           
         </div>
       
@@ -469,8 +481,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/11/Http/" rel="next" title="认识HTTP报文">
-                <i class="fa fa-chevron-left"></i> 认识HTTP报文
+              <a href="/2019/10/13/restart/" rel="next" title="新的起点">
+                <i class="fa fa-chevron-left"></i> 新的起点
               </a>
             
           </div>
@@ -478,10 +490,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/10/13/restart/" rel="prev" title="新的起点">
-                新的起点 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -615,7 +623,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#catalina-日期-log"><span class="nav-number">1.</span> <span class="nav-text"><a href="#catalina-&#x65E5;&#x671F;-log" class="headerlink" title="catalina.&#x65E5;&#x671F;.log"></a>catalina.&#x65E5;&#x671F;.log</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#localhost-日期-log"><span class="nav-number">2.</span> <span class="nav-text"><a href="#localhost-&#x65E5;&#x671F;-log" class="headerlink" title="localhost.&#x65E5;&#x671F;.log"></a>localhost.&#x65E5;&#x671F;.log</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#host-manager-日期-log-与-manager-日期-log"><span class="nav-number">3.</span> <span class="nav-text"><a href="#host-manager-&#x65E5;&#x671F;-log-&#x4E0E;-manager-&#x65E5;&#x671F;-log" class="headerlink" title="host-manager.&#x65E5;&#x671F;.log &#x4E0E; manager.&#x65E5;&#x671F;.log"></a>host-manager.&#x65E5;&#x671F;.log &#x4E0E; manager.&#x65E5;&#x671F;.log</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#localhost-access-log-日期-txt"><span class="nav-number">4.</span> <span class="nav-text"><a href="#localhost-access-log-&#x65E5;&#x671F;-txt" class="headerlink" title="localhost_access_log.&#x65E5;&#x671F;.txt"></a>localhost_access_log.&#x65E5;&#x671F;.txt</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-打包jar"><span class="nav-number">1.</span> <span class="nav-text"><a href="#1-&#x6253;&#x5305;jar" class="headerlink" title="1.&#x6253;&#x5305;jar"></a>1.&#x6253;&#x5305;jar</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-1-pom文件修改"><span class="nav-number">1.1.</span> <span class="nav-text"><a href="#1-1-pom&#x6587;&#x4EF6;&#x4FEE;&#x6539;" class="headerlink" title="1.1 pom&#x6587;&#x4EF6;&#x4FEE;&#x6539;"></a>1.1 pom&#x6587;&#x4EF6;&#x4FEE;&#x6539;</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-2-maven打包"><span class="nav-number">1.2.</span> <span class="nav-text"><a href="#1-2-maven&#x6253;&#x5305;" class="headerlink" title="1.2 maven&#x6253;&#x5305;"></a>1.2 maven&#x6253;&#x5305;</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-打包war"><span class="nav-number">2.</span> <span class="nav-text"><a href="#2-&#x6253;&#x5305;war" class="headerlink" title="2.&#x6253;&#x5305;war"></a>2.&#x6253;&#x5305;war</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-1-修改pom文件"><span class="nav-number">2.1.</span> <span class="nav-text"><a href="#2-1-&#x4FEE;&#x6539;pom&#x6587;&#x4EF6;" class="headerlink" title="2.1 &#x4FEE;&#x6539;pom&#x6587;&#x4EF6;"></a>2.1 &#x4FEE;&#x6539;pom&#x6587;&#x4EF6;</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-2-修改Application类"><span class="nav-number">2.2.</span> <span class="nav-text"><a href="#2-2-&#x4FEE;&#x6539;Application&#x7C7B;" class="headerlink" title="2.2 &#x4FEE;&#x6539;Application&#x7C7B;"></a>2.2 &#x4FEE;&#x6539;Application&#x7C7B;</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-3-maven打包"><span class="nav-number">2.3.</span> <span class="nav-text"><a href="#2-3-maven&#x6253;&#x5305;" class="headerlink" title="2.3 maven&#x6253;&#x5305;"></a>2.3 maven&#x6253;&#x5305;</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-踩坑"><span class="nav-number">3.</span> <span class="nav-text"><a href="#3-&#x8E29;&#x5751;" class="headerlink" title="3.&#x8E29;&#x5751;"></a>3.&#x8E29;&#x5751;</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#3-1-context-path不生效"><span class="nav-number">3.1.</span> <span class="nav-text"><a href="#3-1-context-path&#x4E0D;&#x751F;&#x6548;" class="headerlink" title="3.1 context-path&#x4E0D;&#x751F;&#x6548;"></a>3.1 context-path&#x4E0D;&#x751F;&#x6548;</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-2-tomcat启动，报错Failed-to-start-component"><span class="nav-number">3.2.</span> <span class="nav-text"><a href="#3-2-tomcat&#x542F;&#x52A8;&#xFF0C;&#x62A5;&#x9519;Failed-to-start-component" class="headerlink" title="3.2 tomcat&#x542F;&#x52A8;&#xFF0C;&#x62A5;&#x9519;Failed to start component"></a>3.2 tomcat&#x542F;&#x52A8;&#xFF0C;&#x62A5;&#x9519;Failed to start component</span></a></li></ol></li></ol></div>
             
 
           </div>
