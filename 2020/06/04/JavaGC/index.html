@@ -106,7 +106,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="Java,">
 
 
 
@@ -117,16 +117,24 @@
 
 
 
-<meta name="description" content="daily, skills etc">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Do More">
-<meta property="og:url" content="http://yoummg.github.io/page/2/index.html">
+<meta name="description" content="概述谈到JVM的面试考点，集中在数据区域，及垃圾回收。为什么呢？我的理解是：首先在写Java程序的时候，是否真的明白声明一个变量，在内存里如何存储，以及为什么会有数据区域，为什么不放在一起？其次就是写Java程序不用关心回收对象，那JVM如何判定一个对象什么时候可以回收，以及回收采用什么样的算法，自己在写程序的时候哪些是常驻内存的，哪些是被回收的。 本文分两部分，第一部分：数据区域与垃圾回收基本概">
+<meta name="keywords" content="Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JVM 数据区域及垃圾回收">
+<meta property="og:url" content="http://yoummg.github.io/2020/06/04/JavaGC/index.html">
 <meta property="og:site_name" content="Do More">
-<meta property="og:description" content="daily, skills etc">
+<meta property="og:description" content="概述谈到JVM的面试考点，集中在数据区域，及垃圾回收。为什么呢？我的理解是：首先在写Java程序的时候，是否真的明白声明一个变量，在内存里如何存储，以及为什么会有数据区域，为什么不放在一起？其次就是写Java程序不用关心回收对象，那JVM如何判定一个对象什么时候可以回收，以及回收采用什么样的算法，自己在写程序的时候哪些是常驻内存的，哪些是被回收的。 本文分两部分，第一部分：数据区域与垃圾回收基本概">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoummg.github.io/upload/image/JVM-data.png">
+<meta property="og:image" content="http://yoummg.github.io/upload/image/JVM-heap.png">
+<meta property="og:image" content="http://yoummg.github.io/upload/image/JVM-gc.png">
+<meta property="og:image" content="http://yoummg.github.io/upload/image/JVM-defaultGC.png">
+<meta property="og:image" content="http://yoummg.github.io/upload/image/JVM-heapDetail.png">
+<meta property="og:updated_time" content="2020-06-09T02:58:01.374Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Do More">
-<meta name="twitter:description" content="daily, skills etc">
+<meta name="twitter:title" content="JVM 数据区域及垃圾回收">
+<meta name="twitter:description" content="概述谈到JVM的面试考点，集中在数据区域，及垃圾回收。为什么呢？我的理解是：首先在写Java程序的时候，是否真的明白声明一个变量，在内存里如何存储，以及为什么会有数据区域，为什么不放在一起？其次就是写Java程序不用关心回收对象，那JVM如何判定一个对象什么时候可以回收，以及回收采用什么样的算法，自己在写程序的时候哪些是常驻内存的，哪些是被回收的。 本文分两部分，第一部分：数据区域与垃圾回收基本概">
+<meta name="twitter:image" content="http://yoummg.github.io/upload/image/JVM-data.png">
 
 
 
@@ -156,13 +164,13 @@
 
 
 
-  <link rel="canonical" href="http://yoummg.github.io/page/2/">
+  <link rel="canonical" href="http://yoummg.github.io/2020/06/04/JavaGC/">
 
 
 
 
 
-  <title>Do More</title>
+  <title>JVM 数据区域及垃圾回收 | Do More</title>
   
 
 
@@ -200,8 +208,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -324,9 +331,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -339,7 +346,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoummg.github.io/2017/12/18/git基本命令/">
+    <link itemprop="mainEntityOfPage" href="http://yoummg.github.io/2020/06/04/JavaGC/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="yoummg">
@@ -356,9 +363,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/18/git基本命令/" itemprop="url">git基本命令</a></h1>
+          <h1 class="post-title" itemprop="name headline">JVM 数据区域及垃圾回收</h1>
         
 
         <div class="post-meta">
@@ -370,8 +375,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-18T17:48:04+08:00">
-                2017-12-18
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-04T10:47:09+08:00">
+                2020-06-04
               </time>
             
 
@@ -386,8 +391,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-03-11T10:34:49+08:00">
-                2018-03-11
+              <time title="更新于" itemprop="dateModified" datetime="2020-06-09T10:58:01+08:00">
+                2020-06-09
               </time>
             
           </span>
@@ -422,7 +427,7 @@
 
           
           
-             <span id="/2017/12/18/git基本命令/" class="leancloud_visitors" data-flag-title="git基本命令">
+             <span id="/2020/06/04/JavaGC/" class="leancloud_visitors" data-flag-title="JVM 数据区域及垃圾回收">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -450,7 +455,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  6
+                  5
                 </span>
               
             </div>
@@ -471,210 +476,44 @@
       
 
       
-        
-          <h1 id="生成自己key"><a href="#生成自己key" class="headerlink" title="生成自己key"></a>生成自己key</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> ssh-keygen -t rsa -C "youremail@example.com"</span><br></pre></td></tr></table></figure>
-<p>当前目录下.ssh文件，id_rsa是私钥，不能泄露出去，id_rsa.pub是公钥。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/12/18/git基本命令/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoummg.github.io/2017/12/17/list/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yoummg">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Do More">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/17/list/" itemprop="url">个人清单</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-17T23:17:54+08:00">
-                2017-12-17
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2018-03-11T10:32:36+08:00">
-                2018-03-11
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Life/" itemprop="url" rel="index">
-                    <span itemprop="name">Life</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/12/17/list/" class="leancloud_visitors" data-flag-title="个人清单">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  2
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="滑板"><a href="#滑板" class="headerlink" title="滑板"></a>滑板</h1><h2 id="初级"><a href="#初级" class="headerlink" title="初级"></a>初级</h2><ul>
-<li>翻板 – 上板</li>
-<li>左右向鱼一样游行</li>
-<li>从一层楼梯滑下</li>
+        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>谈到JVM的面试考点，集中在数据区域，及垃圾回收。为什么呢？<br>我的理解是：首先在写Java程序的时候，是否真的明白声明一个变量，在内存里如何存储，以及为什么会有数据区域，为什么不放在一起？其次就是写Java程序不用关心回收对象，那JVM如何判定一个对象什么时候可以回收，以及回收采用什么样的算法，自己在写程序的时候哪些是常驻内存的，哪些是被回收的。</p>
+<p>本文分两部分，第一部分：数据区域与垃圾回收基本概念，第二部分：考点部分，集中在垃圾回收及算法。</p>
+<a id="more"></a>
+<h1 id="数据区域与垃圾回收"><a href="#数据区域与垃圾回收" class="headerlink" title="数据区域与垃圾回收"></a>数据区域与垃圾回收</h1><h2 id="数据区域"><a href="#数据区域" class="headerlink" title="数据区域"></a>数据区域</h2><p><img src="/upload/image/JVM-data.png" alt></p>
+<h3 id="程序计数器"><a href="#程序计数器" class="headerlink" title="程序计数器"></a>程序计数器</h3><p>线程隔离，记录程序运行的位置，例如程序运行到第140行</p>
+<h3 id="虚拟机栈"><a href="#虚拟机栈" class="headerlink" title="虚拟机栈"></a>虚拟机栈</h3><p>每个方法被执行的时候，Java虚拟机都会同步创建一个栈帧（Stack Frame）用于存储局部变量表、操作数栈、动态连接、方法出口等信息</p>
+<h3 id="本地方法栈"><a href="#本地方法栈" class="headerlink" title="本地方法栈"></a>本地方法栈</h3><p>与虚拟机栈类似，用于存放执行本地方法（Native）的栈</p>
+<h3 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h3><p>所有的对象实例以及数组在堆上分配<br><img src="/upload/image/JVM-heap.png" alt></p>
+<h3 id="方法区"><a href="#方法区" class="headerlink" title="方法区"></a>方法区</h3><p>各个线程共享的内存区域，它用于存储已被虚拟机加载的类型信息、常量、静态变量、即时编译器编译后的代码缓存等数据。运行时常量池（Runtime Constant Pool）是方法区的一部分。用于存放编译期生成的各种字面量与符号引用。</p>
+<p><strong>通过实践《深入理解JVM》的数据区域程序demo，去测试stackoverflow heapOutOfMemory等等</strong></p>
+<h2 id="垃圾回收"><a href="#垃圾回收" class="headerlink" title="垃圾回收"></a>垃圾回收</h2><h3 id="哪些对象可以垃圾回收？"><a href="#哪些对象可以垃圾回收？" class="headerlink" title="哪些对象可以垃圾回收？"></a>哪些对象可以垃圾回收？</h3><p>思想：JVM使用可达性分析来判断对象是否可以被回收。（引用计数，无法解决相互引用的对象，被回收。）</p>
+<p>GCRoot：</p>
+<ol>
+<li>虚拟机栈：栈帧中的本地变量表引用的对象；</li>
+<li>native方法引用的对象；</li>
+<li>方法区中的静态变量和常量引用的对象。</li>
+</ol>
+<h3 id="回收使用的算法"><a href="#回收使用的算法" class="headerlink" title="回收使用的算法"></a>回收使用的算法</h3><p>三个核心算法：标记-清除，标记-整理，复制</p>
+<h4 id="标记-清除"><a href="#标记-清除" class="headerlink" title="标记-清除"></a>标记-清除</h4><p>过程：先将可以回收的对象进行标记，然后进行清除。<br>特点：效率快，但会产生内存碎片。</p>
+<h4 id="标记-整理"><a href="#标记-整理" class="headerlink" title="标记-整理"></a>标记-整理</h4><p>过程：先将不回收的对象进行标记，然后将不回收的对象移到内存的一端。<br>特点：执行效率低于标记-清除，但不产生内存碎片。</p>
+<h4 id="复制"><a href="#复制" class="headerlink" title="复制"></a>复制</h4><p>过程：将内存分为两块，将存活的对象移动到没有被使用的一块内存。<br>特点：执行效率很快，但会造成内存浪费，因为总有一部分内存不能使用。</p>
+<p><strong>实际在JDK1.8以前，使用的都是分代算法。新生代使用复制，老年代使用标记-清除/整理</strong></p>
+<h3 id="垃圾收集器"><a href="#垃圾收集器" class="headerlink" title="垃圾收集器"></a>垃圾收集器</h3><p>垃圾收集器是垃圾回收算法的实现<br><img src="/upload/image/JVM-gc.png" alt></p>
+<p>Serial收集器，新生代收集器，采用复制算法，单线程工作。<br>ParNew是Serial多线程版本，若ParNew用在单核机器上，由于要来回切换线程，实际效率不如Serial。<br>Parallel Scavenge收集器是关注“吞吐量优先收集器”<br>Serial Old是Serial收集器的老年代版本，它同样是一个单线程收集器，使用标记-整理算法。<br>Parallel Scavenge加Parallel Old搭配使用。<br>ParNew 与 CMS搭配使用。</p>
+<p><span id="CMS-G1"></span><br>CMS（Concurrent Mark Sweep）收集器是一种以获取最短回收停顿时间为目标的收集器。目前很大一部分的Java应用集中在互联网网站或者基于浏览器的B/S系统的服务端上。<br>四个步骤：初始标记，并发标记，重新标记，并发清除。<br>存在三个缺点：对cpu非常敏感。并发标记，无法处理浮动垃圾。内存碎片问题。</p>
+<p>G1 (Garbage-First) 是一款面向服务器的垃圾收集器,主要针对配备多颗处理器及大容量内存的机器. 以极高概率满足GC停顿时间要求的同时,还具备高吞吐量性能特征。<br>G1收集器开创的基于Region的堆内存布局。Region中还有一类特殊的Humongous区域，专门用来存储大对象。<br>G1仍然保留新生代和老年代的概念，但新生代和老年代不再是固定的了，它们都是一系列区域（不需要连续）的动态集合。<br>后台维护个优先列表，优先处理回收价值收益最大的那些Region。<br>四个步骤：初始标记，并发标记，最终标记，筛选回收。<br>最先进的垃圾收集器的设计导向都不约而同地变为追求能够应付应用的内存分配速率（Allocation Rate），而不追求一次把整个Java堆全部清理干净。这样，应用在分配，同时收集器在收集，只要收集的速度能跟得上对象分配的速度，那一切就能运作得很完美。</p>
+<p>CMS和G1的区别：</p>
+<ul>
+<li>CMS是老年代的收集器，可以配合新生代的Serial和ParNew收集器一起使用，G1收集范围是老年代和新生代，不需要结合其他收集器使用；</li>
+<li>CMS以最小的停顿时间为目标的收集器，G1可预测垃圾回收的停顿时间；</li>
+<li>CMS是使用“标记-清除”算法进行的垃圾回收，容易产生内存碎片，G1使用的是“标记-整理”算法，进行了空间整合，降低了内存空间碎片。</li>
 </ul>
-<hr>
-<h1 id="做饭"><a href="#做饭" class="headerlink" title="做饭"></a>做饭</h1>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/12/17/list/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+<p>JDK默认的GC收集器</p>
+<p><img src="/upload/image/JVM-defaultGC.png" alt></p>
+<h2 id="关于数据区域及GC的考点"><a href="#关于数据区域及GC的考点" class="headerlink" title="关于数据区域及GC的考点"></a>关于数据区域及GC的考点</h2><p><strong>1.JVM中一次完整的GC流程是怎样的，对象如何晋升到老年代？</strong><br>答：<br>思路：先描述一下Java堆内存划分，再解释Minor GC，Major GC，full GC，描述它们之间转化流程。<br>新生代分为eden，survivor区， E,S0,S1  新生代的收集统称为MinorGC，每熬过一次Minor GC，年龄+1，若年龄超过一定限制（15），则被晋升到老年代。即长期存活的对象进入老年代。<br>老年代无法容纳更多对象，则会进行MajorGC，一般都会触发fullGC</p>
+<p><strong>2.新生代为什么要有Eden，还有survivor0 survivor1？</strong><br>答：因为如果只有eden，那进行一次MinorGC，则对象进入老年代，老年代很快被填满，则进行MajorGC，MajorGC的效率比MinorGC慢很多（标记-整理）<br>Survivor存在意义，就是减少被送到老年代的对象，进而减少Full GC的发生<br>第二块survivor保证了eden和s0将存活的对象拷贝到s1,防止了内存碎片。<br><img src="/upload/image/JVM-heapDetail.png" alt></p>
+<p><strong>3.CMS与G1的区别？</strong><br>答：<a href="#CMS-G1">见上文</a></p>
+
       
     </div>
     
@@ -689,392 +528,36 @@
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoummg.github.io/2017/12/17/搭建博客备注/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yoummg">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Do More">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/17/搭建博客备注/" itemprop="url">hexo搭建错误与备注</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-17T00:34:17+08:00">
-                2017-12-17
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2018-03-11T10:36:22+08:00">
-                2018-03-11
-              </time>
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Life/" itemprop="url" rel="index">
-                    <span itemprop="name">Life</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
+            <a href="/tags/Java/" rel="tag"># Java</a>
           
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/12/17/搭建博客备注/" class="leancloud_visitors" data-flag-title="hexo搭建错误与备注">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
         </div>
-      </header>
-    
+      
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
+      
       
       
 
       
-        
-          <p><strong> 搭建遇到的问题就是git无法使用 </strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> hexo deploy</span></span><br></pre></td></tr></table></figure>
-<p>error deployer not found:git </p>
-<p>解决策略：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm install hexo-deployer-git --save</span></span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/12/17/搭建博客备注/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/05/19/canal/" rel="next" title="简单实践canal">
+                <i class="fa fa-chevron-left"></i> 简单实践canal
+              </a>
+            
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
 
-    
+          <span class="post-nav-divider"></span>
 
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoummg.github.io/2017/12/16/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yoummg">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Do More">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/16/hello-world/" itemprop="url">hexo basic command</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+          <div class="post-nav-prev post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-16T23:34:17+08:00">
-                2017-12-16
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2017-12-19T00:10:26+08:00">
-                2017-12-19
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Technique/" itemprop="url" rel="index">
-                    <span itemprop="name">Technique</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/12/16/hello-world/" class="leancloud_visitors" data-flag-title="hexo basic command">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/12/16/hello-world/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -1084,14 +567,11 @@
   </article>
 
 
-    
-  </section>
 
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-  </nav>
-
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -1099,6 +579,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -1119,8 +603,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -1182,6 +675,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据区域与垃圾回收"><span class="nav-number">2.</span> <span class="nav-text">数据区域与垃圾回收</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据区域"><span class="nav-number">2.1.</span> <span class="nav-text">数据区域</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#程序计数器"><span class="nav-number">2.1.1.</span> <span class="nav-text">程序计数器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#虚拟机栈"><span class="nav-number">2.1.2.</span> <span class="nav-text">虚拟机栈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#本地方法栈"><span class="nav-number">2.1.3.</span> <span class="nav-text">本地方法栈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#堆"><span class="nav-number">2.1.4.</span> <span class="nav-text">堆</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法区"><span class="nav-number">2.1.5.</span> <span class="nav-text">方法区</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#垃圾回收"><span class="nav-number">2.2.</span> <span class="nav-text">垃圾回收</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#哪些对象可以垃圾回收？"><span class="nav-number">2.2.1.</span> <span class="nav-text">哪些对象可以垃圾回收？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#回收使用的算法"><span class="nav-number">2.2.2.</span> <span class="nav-text">回收使用的算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#标记-清除"><span class="nav-number">2.2.2.1.</span> <span class="nav-text">标记-清除</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#标记-整理"><span class="nav-number">2.2.2.2.</span> <span class="nav-text">标记-整理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#复制"><span class="nav-number">2.2.2.3.</span> <span class="nav-text">复制</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#垃圾收集器"><span class="nav-number">2.2.3.</span> <span class="nav-text">垃圾收集器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于数据区域及GC的考点"><span class="nav-number">2.3.</span> <span class="nav-text">关于数据区域及GC的考点</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1317,6 +826,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
 
   
 

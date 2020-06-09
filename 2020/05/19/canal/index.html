@@ -106,7 +106,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="mysql,">
 
 
 
@@ -117,16 +117,18 @@
 
 
 
-<meta name="description" content="daily, skills etc">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Do More">
-<meta property="og:url" content="http://yoummg.github.io/archives/2019/index.html">
+<meta name="description" content="canal的原理即伪装成mysql的slave，发dump命令，进行同步。 工具：mysql + canal mysql 配置mac电脑，直接通过dmg包进行安装，安装后在系统偏好设置中启动。 1mysql --verbose --help | grep my.cnf 通过路径一次查找。我的电脑上所涉及的路径都没有，因此在/etc/创建了一个my.cnf,源文件地址重新启动mysql 参考alib">
+<meta name="keywords" content="mysql">
+<meta property="og:type" content="article">
+<meta property="og:title" content="简单实践canal">
+<meta property="og:url" content="http://yoummg.github.io/2020/05/19/canal/index.html">
 <meta property="og:site_name" content="Do More">
-<meta property="og:description" content="daily, skills etc">
+<meta property="og:description" content="canal的原理即伪装成mysql的slave，发dump命令，进行同步。 工具：mysql + canal mysql 配置mac电脑，直接通过dmg包进行安装，安装后在系统偏好设置中启动。 1mysql --verbose --help | grep my.cnf 通过路径一次查找。我的电脑上所涉及的路径都没有，因此在/etc/创建了一个my.cnf,源文件地址重新启动mysql 参考alib">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-05-19T14:08:06.332Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Do More">
-<meta name="twitter:description" content="daily, skills etc">
+<meta name="twitter:title" content="简单实践canal">
+<meta name="twitter:description" content="canal的原理即伪装成mysql的slave，发dump命令，进行同步。 工具：mysql + canal mysql 配置mac电脑，直接通过dmg包进行安装，安装后在系统偏好设置中启动。 1mysql --verbose --help | grep my.cnf 通过路径一次查找。我的电脑上所涉及的路径都没有，因此在/etc/创建了一个my.cnf,源文件地址重新启动mysql 参考alib">
 
 
 
@@ -156,13 +158,13 @@
 
 
 
-  <link rel="canonical" href="http://yoummg.github.io/archives/2019/">
+  <link rel="canonical" href="http://yoummg.github.io/2020/05/19/canal/">
 
 
 
 
 
-  <title>归档 | Do More</title>
+  <title>简单实践canal | Do More</title>
   
 
 
@@ -200,7 +202,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -324,142 +326,222 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoummg.github.io/2020/05/19/canal/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yoummg">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Do More">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">简单实践canal</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-19T16:21:00+08:00">
+                2020-05-19
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2020-05-19T22:08:06+08:00">
+                2020-05-19
+              </time>
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 14 篇日志。 继续努力。
-      </span>
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Technique/" itemprop="url" rel="index">
+                    <span itemprop="name">Technique</span>
+                  </a>
+                </span>
 
-      
-
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2019">2019</h1>
-          </div>
-        
-        
 
-        
+          
+            
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+          
+             <span id="/2020/05/19/canal/" class="leancloud_visitors" data-flag-title="简单实践canal">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/12/12/spring IoC源码解析/" itemprop="url">
+          
+
+          
+            <div class="post-wordcount">
               
-                <span itemprop="name">spring IoC源码解析</span>
+
               
-            </a>
-        
-      </h2>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-12-12T20:49:02+08:00" content="2019-12-12">
-          12-12
-        </time>
-      </div>
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
 
-    </header>
-  </article>
+          
 
+        </div>
+      </header>
+    
 
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/10/22/springboot打包踩坑/" itemprop="url">
-              
-                <span itemprop="name">springboot打包踩坑</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-10-22T15:48:55+08:00" content="2019-10-22">
-          10-22
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/10/13/restart/" itemprop="url">
-              
-                <span itemprop="name">新的起点</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-10-13T22:21:31+08:00" content="2019-10-13">
-          10-13
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <p>canal的原理即伪装成mysql的slave，发dump命令，进行同步。</p>
+<p>工具：mysql + canal</p>
+<h3 id="mysql-配置"><a href="#mysql-配置" class="headerlink" title="mysql 配置"></a>mysql 配置</h3><p>mac电脑，直接通过dmg包进行安装，安装后在<strong>系统偏好设置中</strong>启动。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql --verbose --help | grep my.cnf</span><br></pre></td></tr></table></figure>
+<p>通过路径一次查找。我的电脑上所涉及的路径都没有，因此在<strong>/etc/</strong>创建了一个my.cnf,<a href="https://shimo.im/docs/8pwV9Gv6TwQh8GXC" target="_blank" rel="noopener">源文件地址</a><br>重新启动mysql</p>
+<p>参考alibaba <a href="https://github.com/alibaba/canal/wiki/QuickStart" target="_blank" rel="noopener">https://github.com/alibaba/canal/wiki/QuickStart</a><br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> mysql命令行</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">创建canal用户</span></span><br><span class="line">CREATE USER canal IDENTIFIED BY 'canal';  </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">授权</span></span><br><span class="line">GRANT ALL PRIVILEGES ON *.* TO 'canal'@'%' ;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">刷新</span></span><br><span class="line">FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure></p>
+<h3 id="配置canal"><a href="#配置canal" class="headerlink" title="配置canal"></a>配置canal</h3><p>下载canal：<a href="https://github.com/alibaba/canal/releases" target="_blank" rel="noopener">https://github.com/alibaba/canal/releases</a> (canal.deployer-1.1.4.tar.gz)</p>
+<p>配置修改<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">vi conf/example/instance.properties</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># mysql serverId</span></span></span><br><span class="line">canal.instance.mysql.slaveId = 1234</span><br><span class="line"><span class="meta">#</span><span class="bash">position info，需要改成自己的数据库信息</span></span><br><span class="line">canal.instance.master.address = 127.0.0.1:3306 </span><br><span class="line">canal.instance.master.journal.name = </span><br><span class="line">canal.instance.master.position = </span><br><span class="line">canal.instance.master.timestamp = </span><br><span class="line"><span class="meta">#</span><span class="bash">canal.instance.standby.address = </span></span><br><span class="line"><span class="meta">#</span><span class="bash">canal.instance.standby.journal.name =</span></span><br><span class="line"><span class="meta">#</span><span class="bash">canal.instance.standby.position = </span></span><br><span class="line"><span class="meta">#</span><span class="bash">canal.instance.standby.timestamp = </span></span><br><span class="line"><span class="meta">#</span><span class="bash">username/password，需要改成自己的数据库信息</span></span><br><span class="line">canal.instance.dbUsername = canal  </span><br><span class="line">canal.instance.dbPassword = canal</span><br><span class="line">canal.instance.defaultDatabaseName =</span><br><span class="line">canal.instance.connectionCharset = UTF-8</span><br><span class="line"><span class="meta">#</span><span class="bash">table regex</span></span><br><span class="line">canal.instance.filter.regex = .\*\\\\..\*</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 启动</span></span><br><span class="line">sh bin/startup.sh</span><br></pre></td></tr></table></figure></p>
+<p>一个简单的demo程序<br>参考自：<a href="https://github.com/alibaba/canal/blob/master/example/src/main/java/com/alibaba/otter/canal/example/SimpleCanalClientTest.java" target="_blank" rel="noopener">https://github.com/alibaba/canal/blob/master/example/src/main/java/com/alibaba/otter/canal/example/SimpleCanalClientTest.java</a></p>
 
       
-
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/mysql/" rel="tag"># mysql</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/12/12/spring IoC源码解析/" rel="next" title="spring IoC源码解析">
+                <i class="fa fa-chevron-left"></i> spring IoC源码解析
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/06/04/JavaGC/" rel="prev" title="JVM 数据区域及垃圾回收">
+                JVM 数据区域及垃圾回收 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -467,6 +549,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -487,8 +573,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -550,6 +645,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#mysql-配置"><span class="nav-number">1.</span> <span class="nav-text">mysql 配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置canal"><span class="nav-number">2.</span> <span class="nav-text">配置canal</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -685,6 +796,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
 
   
 
