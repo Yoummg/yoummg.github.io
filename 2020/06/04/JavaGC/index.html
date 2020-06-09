@@ -117,23 +117,23 @@
 
 
 
-<meta name="description" content="概述谈到JVM的面试考点，集中在数据区域，及垃圾回收。为什么呢？我的理解是：首先在写Java程序的时候，是否真的明白声明一个变量，在内存里如何存储，以及为什么会有数据区域，为什么不放在一起？其次就是写Java程序不用关心回收对象，那JVM如何判定一个对象什么时候可以回收，以及回收采用什么样的算法，自己在写程序的时候哪些是常驻内存的，哪些是被回收的。 本文分两部分，第一部分：数据区域与垃圾回收基本概">
+<meta name="description" content="概述谈到JVM的面试考点，集中在数据区域，及垃圾回收。为什么呢？我的理解是：首先在写Java程序的时候，是否真的明白声明一个变量，在内存里如何存储，以及为什么会有数据区域，为什么不放在一起？其次就是写Java程序不用关心回收对象，那JVM如何判定一个对象什么时候可以回收，以及回收采用什么样的算法，自己在写程序的时候哪些是常驻内存的，哪些是被回收的。">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JVM 数据区域及垃圾回收">
 <meta property="og:url" content="http://yoummg.github.io/2020/06/04/JavaGC/index.html">
 <meta property="og:site_name" content="Do More">
-<meta property="og:description" content="概述谈到JVM的面试考点，集中在数据区域，及垃圾回收。为什么呢？我的理解是：首先在写Java程序的时候，是否真的明白声明一个变量，在内存里如何存储，以及为什么会有数据区域，为什么不放在一起？其次就是写Java程序不用关心回收对象，那JVM如何判定一个对象什么时候可以回收，以及回收采用什么样的算法，自己在写程序的时候哪些是常驻内存的，哪些是被回收的。 本文分两部分，第一部分：数据区域与垃圾回收基本概">
+<meta property="og:description" content="概述谈到JVM的面试考点，集中在数据区域，及垃圾回收。为什么呢？我的理解是：首先在写Java程序的时候，是否真的明白声明一个变量，在内存里如何存储，以及为什么会有数据区域，为什么不放在一起？其次就是写Java程序不用关心回收对象，那JVM如何判定一个对象什么时候可以回收，以及回收采用什么样的算法，自己在写程序的时候哪些是常驻内存的，哪些是被回收的。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoummg.github.io/upload/image/JVM-data.png">
 <meta property="og:image" content="http://yoummg.github.io/upload/image/JVM-heap.png">
 <meta property="og:image" content="http://yoummg.github.io/upload/image/JVM-gc.png">
 <meta property="og:image" content="http://yoummg.github.io/upload/image/JVM-defaultGC.png">
 <meta property="og:image" content="http://yoummg.github.io/upload/image/JVM-heapDetail.png">
-<meta property="og:updated_time" content="2020-06-09T02:58:01.374Z">
+<meta property="og:updated_time" content="2020-06-09T03:04:37.331Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JVM 数据区域及垃圾回收">
-<meta name="twitter:description" content="概述谈到JVM的面试考点，集中在数据区域，及垃圾回收。为什么呢？我的理解是：首先在写Java程序的时候，是否真的明白声明一个变量，在内存里如何存储，以及为什么会有数据区域，为什么不放在一起？其次就是写Java程序不用关心回收对象，那JVM如何判定一个对象什么时候可以回收，以及回收采用什么样的算法，自己在写程序的时候哪些是常驻内存的，哪些是被回收的。 本文分两部分，第一部分：数据区域与垃圾回收基本概">
+<meta name="twitter:description" content="概述谈到JVM的面试考点，集中在数据区域，及垃圾回收。为什么呢？我的理解是：首先在写Java程序的时候，是否真的明白声明一个变量，在内存里如何存储，以及为什么会有数据区域，为什么不放在一起？其次就是写Java程序不用关心回收对象，那JVM如何判定一个对象什么时候可以回收，以及回收采用什么样的算法，自己在写程序的时候哪些是常驻内存的，哪些是被回收的。">
 <meta name="twitter:image" content="http://yoummg.github.io/upload/image/JVM-data.png">
 
 
@@ -391,7 +391,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-06-09T10:58:01+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2020-06-09T11:04:37+08:00">
                 2020-06-09
               </time>
             
@@ -476,9 +476,8 @@
       
 
       
-        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>谈到JVM的面试考点，集中在数据区域，及垃圾回收。为什么呢？<br>我的理解是：首先在写Java程序的时候，是否真的明白声明一个变量，在内存里如何存储，以及为什么会有数据区域，为什么不放在一起？其次就是写Java程序不用关心回收对象，那JVM如何判定一个对象什么时候可以回收，以及回收采用什么样的算法，自己在写程序的时候哪些是常驻内存的，哪些是被回收的。</p>
+        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>谈到JVM的面试考点，集中在数据区域，及垃圾回收。为什么呢？<br>我的理解是：首先在写Java程序的时候，是否真的明白声明一个变量，在内存里如何存储，以及为什么会有数据区域，为什么不放在一起？其次就是写Java程序不用关心回收对象，那JVM如何判定一个对象什么时候可以回收，以及回收采用什么样的算法，自己在写程序的时候哪些是常驻内存的，哪些是被回收的。<br><a id="more"></a></p>
 <p>本文分两部分，第一部分：数据区域与垃圾回收基本概念，第二部分：考点部分，集中在垃圾回收及算法。</p>
-<a id="more"></a>
 <h1 id="数据区域与垃圾回收"><a href="#数据区域与垃圾回收" class="headerlink" title="数据区域与垃圾回收"></a>数据区域与垃圾回收</h1><h2 id="数据区域"><a href="#数据区域" class="headerlink" title="数据区域"></a>数据区域</h2><p><img src="/upload/image/JVM-data.png" alt></p>
 <h3 id="程序计数器"><a href="#程序计数器" class="headerlink" title="程序计数器"></a>程序计数器</h3><p>线程隔离，记录程序运行的位置，例如程序运行到第140行</p>
 <h3 id="虚拟机栈"><a href="#虚拟机栈" class="headerlink" title="虚拟机栈"></a>虚拟机栈</h3><p>每个方法被执行的时候，Java虚拟机都会同步创建一个栈帧（Stack Frame）用于存储局部变量表、操作数栈、动态连接、方法出口等信息</p>
