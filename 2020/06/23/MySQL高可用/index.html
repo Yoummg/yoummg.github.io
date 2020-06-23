@@ -106,7 +106,7 @@
 
 
 
-  <meta name="keywords" content="iterm2,">
+  <meta name="keywords" content="MySQL,">
 
 
 
@@ -117,21 +117,23 @@
 
 
 
-<meta name="description" content="使用过半年的iterm2，感觉还是非常好用的，但是就是每次在打命令的时候切换单词和删除单词的时候，总感觉效率低的要命。个人觉得自己的反射弧较长，今天终于忍受不住，把这个问题干掉。 iterm2的以单词为单位的移动参考博客 向左移动 esc+b 向右移动 esc+f">
-<meta name="keywords" content="iterm2">
+<meta name="description" content="MySQL的高可用，首先就是其可用性即数据如何持久化，其次就是主备，主从之间如何同步，通过binlog，binlog的格式对复制的影响，以及延迟的产生因素等等。">
+<meta name="keywords" content="MySQL">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iterm2常用快捷键">
-<meta property="og:url" content="http://yoummg.github.io/2017/12/19/iterm2常用快捷键/index.html">
+<meta property="og:title" content="MySQL高可用">
+<meta property="og:url" content="http://yoummg.github.io/2020/06/23/MySQL高可用/index.html">
 <meta property="og:site_name" content="Do More">
-<meta property="og:description" content="使用过半年的iterm2，感觉还是非常好用的，但是就是每次在打命令的时候切换单词和删除单词的时候，总感觉效率低的要命。个人觉得自己的反射弧较长，今天终于忍受不住，把这个问题干掉。 iterm2的以单词为单位的移动参考博客 向左移动 esc+b 向右移动 esc+f">
+<meta property="og:description" content="MySQL的高可用，首先就是其可用性即数据如何持久化，其次就是主备，主从之间如何同步，通过binlog，binlog的格式对复制的影响，以及延迟的产生因素等等。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoummg.github.io/upload/image/iterm1.png">
-<meta property="og:image" content="http://yoummg.github.io/upload/image/iterm2.png">
-<meta property="og:updated_time" content="2018-03-11T02:04:18.000Z">
+<meta property="og:image" content="http://yoummg.github.io/upload/image/MySQL-sqlexe.png">
+<meta property="og:image" content="http://yoummg.github.io/upload/image/MySQL-binlog-write.png">
+<meta property="og:image" content="http://yoummg.github.io/upload/image/MySQL-redolog-write.png">
+<meta property="og:image" content="http://yoummg.github.io/upload/image/MySQL-copy.png">
+<meta property="og:updated_time" content="2020-06-23T15:56:17.912Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iterm2常用快捷键">
-<meta name="twitter:description" content="使用过半年的iterm2，感觉还是非常好用的，但是就是每次在打命令的时候切换单词和删除单词的时候，总感觉效率低的要命。个人觉得自己的反射弧较长，今天终于忍受不住，把这个问题干掉。 iterm2的以单词为单位的移动参考博客 向左移动 esc+b 向右移动 esc+f">
-<meta name="twitter:image" content="http://yoummg.github.io/upload/image/iterm1.png">
+<meta name="twitter:title" content="MySQL高可用">
+<meta name="twitter:description" content="MySQL的高可用，首先就是其可用性即数据如何持久化，其次就是主备，主从之间如何同步，通过binlog，binlog的格式对复制的影响，以及延迟的产生因素等等。">
+<meta name="twitter:image" content="http://yoummg.github.io/upload/image/MySQL-sqlexe.png">
 
 
 
@@ -161,13 +163,13 @@
 
 
 
-  <link rel="canonical" href="http://yoummg.github.io/2017/12/19/iterm2常用快捷键/">
+  <link rel="canonical" href="http://yoummg.github.io/2020/06/23/MySQL高可用/">
 
 
 
 
 
-  <title>iterm2常用快捷键 | Do More</title>
+  <title>MySQL高可用 | Do More</title>
   
 
 
@@ -343,7 +345,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoummg.github.io/2017/12/19/iterm2常用快捷键/">
+    <link itemprop="mainEntityOfPage" href="http://yoummg.github.io/2020/06/23/MySQL高可用/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="yoummg">
@@ -360,7 +362,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">iterm2常用快捷键</h1>
+          <h1 class="post-title" itemprop="name headline">MySQL高可用</h1>
         
 
         <div class="post-meta">
@@ -372,8 +374,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-19T11:09:40+08:00">
-                2017-12-19
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-23T23:09:32+08:00">
+                2020-06-23
               </time>
             
 
@@ -388,8 +390,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-03-11T10:04:18+08:00">
-                2018-03-11
+              <time title="更新于" itemprop="dateModified" datetime="2020-06-23T23:56:17+08:00">
+                2020-06-23
               </time>
             
           </span>
@@ -424,7 +426,7 @@
 
           
           
-             <span id="/2017/12/19/iterm2常用快捷键/" class="leancloud_visitors" data-flag-title="iterm2常用快捷键">
+             <span id="/2020/06/23/MySQL高可用/" class="leancloud_visitors" data-flag-title="MySQL高可用">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -452,7 +454,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  6
                 </span>
               
             </div>
@@ -473,22 +475,65 @@
       
 
       
-        <p>使用过半年的iterm2，感觉还是非常好用的，但是就是每次在打命令的时候切换单词和删除单词的时候，总感觉效率低的要命。个人觉得自己的反射弧较长，今天终于忍受不住，把这个问题干掉。</p>
-<h1 id="iterm2的以单词为单位的移动"><a href="#iterm2的以单词为单位的移动" class="headerlink" title="iterm2的以单词为单位的移动"></a>iterm2的以单词为单位的移动</h1><p><a href="http://aaronmoment.cn/iterm2/" target="_blank" rel="noopener">参考博客</a></p>
-<p>向左移动 <code>esc</code>+<code>b</code></p>
-<p>向右移动 <code>esc</code>+<code>f</code><br><a id="more"></a></p>
-<p>但这两个快捷键也是难用的要命，因为手会离开打字区域。因此需要改造iterm单词移动的快捷键。</p>
-<p>两步解决。</p>
-<p><img src="/upload/image/iterm1.png" alt></p>
-<p><img src="/upload/image/iterm2.png" alt></p>
-<p>最终结果</p>
-<p>向左移动 <code>opt</code>+<code>←</code><br>向右移动 <code>opt</code>+<code>→</code></p>
-<h1 id="其他的快捷键"><a href="#其他的快捷键" class="headerlink" title="其他的快捷键"></a>其他的快捷键</h1><p><code>⌘</code> 代表 <code>command</code><br><code>^</code> 代表 <code>control</code></p>
-<p>切换<br><code>⌘</code> + number 切换标签页<br><code>⌘</code> + <code>←/→</code> 按方向切换标签页<br><code>⌘</code> + <code>⏎</code> 切换全屏</p>
-<p>补全，查找<br><code>⌘</code> + <code>;</code> 自动补全历史命令<br><code>^</code> + <code>r</code> 查询历史输入命令</p>
-<p>行首行末<br><code>⌃</code> + <code>a</code> 到行首<br><code>⌃</code> + <code>e</code> 到行末</p>
-<p>清空，删除<br><code>⌃</code> + <code>u</code> 清空当前行<br><code>⌃</code> + <code>d</code> 删除当前字符<br><code>⌃</code> + <code>h</code> 删除之前的字符<br><code>⌃</code> + <code>w</code> 删除光标前的单词<br><code>⌃</code> + <code>k</code> 删除到文本末尾</p>
-<p>分屏<br><code>⌘</code> + <code>d</code> 垂直分屏<br><code>⌘</code> + <code>shift</code> + <code>d</code> 水平分屏<br><code>⌘</code> + <code>]</code>和<code>⌘</code> + <code>[</code>在最近使用的分屏直接切换<br><code>⌘</code> + <code>opt</code> + <code>←/→</code>切换到指定位置的分屏。</p>
+        <p>MySQL的高可用，首先就是其可用性即数据如何持久化，其次就是主备，主从之间如何同步，通过binlog，binlog的格式对复制的影响，以及延迟的产生因素等等。</p>
+<a id="more"></a>
+<p>本文的逻辑参考极客时间《MySQL实战45讲》23节-28节。</p>
+<h1 id="MySQL的持久化"><a href="#MySQL的持久化" class="headerlink" title="MySQL的持久化"></a>MySQL的持久化</h1><p><strong>修改SQL，执行过程</strong><br><img src="/upload/image/MySQL-sqlexe.png" alt><br>核心：时刻A，时刻B，两阶段提交。通过两阶段提交可以找回丢失的数据。</p>
+<p>我们先来看一下崩溃恢复时的判断规则。<br>如果redo log里面的事务是完整的，也就是已经有了 commit 标识，则直接提交；<br>如果redo log里面的事务只有完整的 prepare，则判断对应的事务 binlog 是否存在并完整：<br>a.如果是，则提交事务；<br>b.否则，回滚事务。</p>
+<p><strong>binlog 的写入逻辑：事务执行过程中，先把日志写到 binlog cache，事务提交的时候，再把 binlog cache 写到 binlog 文件。</strong><br><img src="/upload/image/MySQL-binlog-write.png" alt><br>write 和 fsync 的时机，是由参数 sync_binlog 控制的：<br><strong>sync_binlog=0</strong> 的时候，表示每次提交事务都只 write，不 fsync；<br><strong>sync_binlog=1</strong> 的时候，表示每次提交事务都会执行 fsync；<br><strong>sync_binlog=N(N&gt;1)</strong> 的时候，表示每次提交事务都 write，但累积 N 个事务后才 fsync。</p>
+<p><strong>redo log写入机制: 事务在执行过程中，生成的 redo log 是要先写到 redo log buffer。</strong><br><img src="/upload/image/MySQL-redolog-write.png" alt><br>InnoDB 提供了 innodb_flush_log_at_trx_commit 参数，它有三种可能取值：</p>
+<ul>
+<li>设置为 0 的时候，表示每次事务提交时都只是把 redo log 留在 redo log buffer 中 ;</li>
+<li>设置为 1 的时候，表示每次事务提交时都将 redo log 直接持久化到磁盘；</li>
+<li>设置为 2 的时候，表示每次事务提交时都只是把 redo log 写到 page cache。</li>
+</ul>
+<p>InnoDB 有一个后台线程，每隔 1 秒，就会把 redo log buffer 中的日志，调用 write 写到文件系统的 page cache，然后调用 fsync 持久化到磁盘。</p>
+<p>通常我们说 MySQL 的“双 1”配置，指的就是 sync_binlog 和 innodb_flush_log_at_trx_commit 都设置成 1。也就是说，一个事务完整提交前，需要等待两次刷盘，一次是 redo log（prepare 阶段），一次是 binlog。</p>
+<p>组提交：多个事务一起写入磁盘被称为组提交。</p>
+<p>想提升 binlog 组提交的效果，可以通过设置 binlog_group_commit_sync_delay 和 binlog_group_commit_sync_no_delay_count 来实现。</p>
+<ul>
+<li>binlog_group_commit_sync_delay 参数，表示延迟多少微秒后才调用 fsync;</li>
+<li>binlog_group_commit_sync_no_delay_count 参数，表示累积多少次以后才调用 fsync。</li>
+</ul>
+<p>你在什么时候会把线上生产库设置成“非双 1”。我目前知道的场景，有以下这些：</p>
+<ul>
+<li>业务高峰期。一般如果有预知的高峰期，DBA 会有预案，把主库设置成“非双 1”。</li>
+<li>备库延迟，为了让备库尽快赶上主库。</li>
+<li>用备份恢复主库的副本，应用 binlog 的过程，这个跟上一种场景类似。</li>
+<li>批量导入数据的时候。</li>
+</ul>
+<h1 id="主备-主从问题"><a href="#主备-主从问题" class="headerlink" title="主备/主从问题"></a>主备/主从问题</h1><h2 id="如何保证主备数据执行一致？"><a href="#如何保证主备数据执行一致？" class="headerlink" title="如何保证主备数据执行一致？"></a>如何保证主备数据执行一致？</h2><p>binlog的格式：Statement、Row、Mixed</p>
+<p>Statement 使用会主库与备库数据不一致。大多采用ROW格式。</p>
+<h2 id="主备延迟"><a href="#主备延迟" class="headerlink" title="主备延迟"></a>主备延迟</h2><h3 id="切换不同策略"><a href="#切换不同策略" class="headerlink" title="切换不同策略"></a>切换不同策略</h3><p>可靠性优先策略：主切换readOnly，备库延迟为0进行改为master<br>可用性优先策略：在binlog是row，直接进行切换，数据出错会直接报出，方便修改。<br>实践中一般采用可靠性策略进行切换。</p>
+<h3 id="延迟产生原因"><a href="#延迟产生原因" class="headerlink" title="延迟产生原因"></a>延迟产生原因</h3><p>核心因素：主备延迟最直接的表现是，备库消费中转日志（relay log）的速度，比主库生产 binlog 的速度要慢。<br>导致慢的原因：</p>
+<ol>
+<li>备库所在机器的性能要比主库所在的机器性能差</li>
+<li>备库的压力大，提供更多查询</li>
+<li>大事务，例如十分钟的事务，大表DDL</li>
+</ol>
+<p><strong>并行复制能力</strong><br><img src="/upload/image/MySQL-copy.png" alt><br>在主库上，影响并发度的原因就是各种锁了。由于 InnoDB 引擎支持行锁，除了所有并发事务都在更新同一行（热点行）这种极端场景外，它对业务并发度的支持还是很友好的。所以，你在性能测试的时候会发现，并发压测线程 32 就比单线程时，总体吞吐量高。而日志在备库上的执行，就是图中备库上 sql_thread 更新数据 (DATA) 的逻辑。如果是用单线程的话，就会导致备库应用日志不够快，造成主备延迟。在官方的 5.6 版本之前，MySQL 只支持单线程复制，由此在主库并发高、TPS 高时就会出现严重的主备延迟问题。</p>
+<p>官方 MySQL5.6 版本，支持了并行复制，只是支持的粒度是按库并行。</p>
+<p>MariaDB 是这么做的：<br>在一组里面一起提交的事务，有一个相同的 commit_id，下一组就是 commit_id+1；commit_id 直接写到 binlog 里面；<br>传到备库应用的时候，相同 commit_id 的事务分发到多个 worker 执行；<br>这一组全部执行完成后，coordinator（分发器） 再去取下一批。</p>
+<p>MySQL 5.7 并行复制策略的思想是：同时处于 prepare 状态的事务，在备库执行时是可以并行的；处于 prepare 状态的事务，与处于 commit 状态的事务之间，在备库执行时也是可以并行的。<br>讲 binlog 的组提交的时候，介绍过两个参数：<br>binlog_group_commit_sync_delay 参数，表示延迟多少微秒后才调用fsync;<br>binlog_group_commit_sync_no_delay_count 参数，表示累积多少次以后才调用 fsync。<br>这两个参数是用于故意拉长 binlog 从 write 到 fsync 的时间，以此减少 binlog 的写盘次数。在 MySQL 5.7 的并行复制策略里，它们可以用来制造更多的“同时处于 prepare 阶段的事务”。这样就增加了备库复制的并行度。</p>
+<p>MySQL 5.7.22 新增了一个参数 binlog-transaction-dependency-tracking，<br>用来控制是否启用这个新策略。这个参数的可选值有以下三种。<br><strong>COMMIT_ORDER</strong>，表示的就是前面介绍的，根据同时进入 prepare 和 commit 来判断是否可以并行的策略。<br><strong>WRITESET</strong>，表示的是对于事务涉及更新的每一行，计算出这一行的 hash 值，组成集合 writeset。如果两个事务没有操作相同的行，也就是说它们的 writeset 没有交集，就可以并行。<br><strong>WRITESET_SESSION</strong>，是在 WRITESET 的基础上多了一个约束，即在主库上同一个线程先后执行的两个事务，在备库执行的时候，要保证相同的先后顺序。</p>
+<h3 id="主从-读写分离的坑"><a href="#主从-读写分离的坑" class="headerlink" title="主从-读写分离的坑"></a>主从-读写分离的坑</h3><p>新数据从库读取不到。</p>
+<p>解决方案：</p>
+<ul>
+<li>对于迅速要读的强制走主库</li>
+<li>可以sleep一下进行</li>
+<li>判断主备无延迟方案</li>
+</ul>
+<p>针对主备延迟方案：</p>
+<ul>
+<li>3.1 seconds_behind_master 是否已经等于0</li>
+<li>3.2 对比位点确保主备无延迟</li>
+<li>3.3 对比 GTID 集合确保主备无延迟</li>
+</ul>
+<p>GTID：</p>
+<ul>
+<li>3.3.1 配合 semi-sync，从库（仅一个）同步完成ack主库 （存在两个问题：一主多从的时候，在某些从库执行查询请求会存在过期读的现象；在持续延迟的情况下，可能出现过度等待的问题。）</li>
+<li>3.3.2 GTID 的执行流程就变成了：trx1 事务更新完成后，从返回包直接获取这个事务的 GTID，记为 gtid1；选定一个从库执行查询语句；在从库上执行 select wait_for_executed_gtid_set(gtid1, 1)；如果返回值是 0，则在这个从库执行查询语句；否则，到主库执行查询语句。</li>
+</ul>
 
       
     </div>
@@ -506,7 +551,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/iterm2/" rel="tag"># iterm2</a>
+            <a href="/tags/MySQL/" rel="tag"># MySQL</a>
           
         </div>
       
@@ -519,8 +564,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/18/git基本命令/" rel="next" title="git基本命令">
-                <i class="fa fa-chevron-left"></i> git基本命令
+              <a href="/2020/06/04/JavaGC/" rel="next" title="JVM 数据区域及垃圾回收">
+                <i class="fa fa-chevron-left"></i> JVM 数据区域及垃圾回收
               </a>
             
           </div>
@@ -528,10 +573,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/12/19/Mac常用配置/" rel="prev" title="Mac常用配置">
-                Mac常用配置 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -665,7 +706,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#iterm2的以单词为单位的移动"><span class="nav-number">1.</span> <span class="nav-text">iterm2的以单词为单位的移动</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其他的快捷键"><span class="nav-number">2.</span> <span class="nav-text">其他的快捷键</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#MySQL的持久化"><span class="nav-number">1.</span> <span class="nav-text">MySQL的持久化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#主备-主从问题"><span class="nav-number">2.</span> <span class="nav-text">主备/主从问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#如何保证主备数据执行一致？"><span class="nav-number">2.1.</span> <span class="nav-text">如何保证主备数据执行一致？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主备延迟"><span class="nav-number">2.2.</span> <span class="nav-text">主备延迟</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#切换不同策略"><span class="nav-number">2.2.1.</span> <span class="nav-text">切换不同策略</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#延迟产生原因"><span class="nav-number">2.2.2.</span> <span class="nav-text">延迟产生原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主从-读写分离的坑"><span class="nav-number">2.2.3.</span> <span class="nav-text">主从-读写分离的坑</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
